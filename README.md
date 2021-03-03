@@ -1,7 +1,7 @@
 # Mapping_Earthquakes
 
 ## Overview 
-Using Leaflet.js API, a map was populated with GeoJSON earthquake data from a URL.  Each earthquake with a magnitude greater than 4.5 is visually represented with a circle and color, and a larger mahnitude will have a larger diameter circle.  Additionally, each earthquake marker has a popup marker that displays the magnitude of the earthquake and the location.  Users can choose to view the map in street view, satellite street view, or light view.  Users can also select from the following layers: Earthquakes, Tectonic Plates, or Major Earthquakes.
+Using Leaflet.js API, a map was populated with GeoJSON earthquake data from a URL.  Each earthquake with a magnitude greater than 4.5 is visually represented with a circle and color, and a larger magnitude will have a larger diameter circle.  Additionally, each earthquake marker has a popup marker that displays the magnitude of the earthquake and the location.  Users can choose to view the map in street view, satellite street view, or light view.  Users can also select from the following layers: Earthquakes, Tectonic Plates, or Major Earthquakes.
 
 ## Dependencies
 - JavaScript
