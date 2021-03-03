@@ -1,37 +1,5 @@
 // Create the map object with center at San Francisco airport
-let map = L.map('mapid').setView([37.5, -122.5], 10);
-
-// Add GeoJSON data
-// Add GeoJSON data.
-let sanFranAirport =
-{"type":"FeatureCollection","features":[{
-    "type":"Feature",
-    "properties":{
-        "id":"3469",
-        "name":"San Francisco International Airport",
-        "city":"San Francisco",
-        "country":"United States",
-        "faa":"SFO",
-        "icao":"KSFO",
-        "alt":"13",
-        "tz-offset":"-8",
-        "dst":"A",
-        "tz":"America/Los_Angeles"},
-    "geometry":{
-        "type":"Point",
-        "coordinates":[-122.375, 37.61899948120117]}}
-]};
-
-// Grab GeoJSON data
-L.geoJSON(sanFranAirport, {
-
-  // Turn each feature into a marker on the map
-  pointToLayer: function(feature, latlng) {
-    console.log(feature);
-    return L.marker(latlng)
-    .bindPopup("<h2>" + feature.properties.city + "</h2>")
-  }
-}).addTo(map);
+let map = L.map('mapid').setView([30, 30], 2);
 
 // Create the tile layer that will be the background of the map
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -45,3 +13,14 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
 
 // Then we add the 'graymap' tile layer to the map
 streets.addTo(map);
+
+// Accessing airport GeoJSON URL
+let airportData = "https://raw.githubusercontent.com/acfthomson/Mapping_Earthquakes/main/majorAirports.json";
+
+// Grab GeoJSON data
+d3.json(airportData).then(function(data) {
+  console.log(data);
+
+  // Create a GeoJSON layer with retrieved data
+  L.geoJson(data).addTo(map);
+});
